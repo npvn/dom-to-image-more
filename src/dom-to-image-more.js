@@ -369,7 +369,7 @@
                     foreignObject + '</svg>';
             })
             .then(function(svg) {
-                return 'data:image/svg+xml;charset=utf-8,' + svg;
+                return encodeURI('data:image/svg+xml;charset=utf-8,') + encodeURIComponent(svg);
             });
     }
 
@@ -488,7 +488,7 @@
                     resolve(image);
                 };
                 image.onerror = reject;
-                image.src = uri;
+                image.src = encodeURI(uri);
             });
         }
 
